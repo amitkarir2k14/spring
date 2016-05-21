@@ -12,6 +12,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
@@ -34,16 +36,14 @@ public class RootConfig {
 		return new NamedParameterJdbcTemplate(dataSource);
 	}
 	
-//	@Bean
-//	public JpaVendorAdapter jpaVendorAdapter() {
-//	 OpenJ
-//		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-//	  adapter.setDatabase("HSQL");
-//	  adapter.setShowSql(true);
-//	  adapter.setGenerateDdl(false);
-//	  adapter.setDatabasePlatform("org.hibernate.dialect.HSQLDialect");
-//	  return adapter;
-//	}
+	@Bean
+	public JpaVendorAdapter jpaVendorAdapter() {
+	 OpenJpaVendorAdapter adapter = new OpenJpaVendorAdapter();
+	  adapter.setDatabase(Database.MYSQL);
+	  adapter.setShowSql(true);
+	  adapter.setGenerateDdl(false);
+	  return adapter;
+	}
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource,

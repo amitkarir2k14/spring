@@ -10,8 +10,8 @@ public class SpitterRowMapper<T> implements RowMapper<Spitter> {
 	@Override
 	public Spitter mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// TODO Auto-generated method stub
-		return new Spitter(rs.getLong("id"),rs.getString("firstName"), rs.getString("lastName"), rs.getString("username"),
-				rs.getString("password"), rs.getString("email"), rs.getDate("registerDate"));
+		return new Spitter(rs.getLong("id"), rs.getString("firstName"), rs.getString("lastName"),
+				rs.getString("username"), rs.getString("password"), rs.getString("email"), rs.getDate("registerDate"));
 	}
 
 }

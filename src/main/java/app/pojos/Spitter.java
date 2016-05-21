@@ -2,9 +2,10 @@ package app.pojos;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.stereotype.Component;
 
-import com.sun.istack.internal.NotNull;
 
 @Component
 public class Spitter {
@@ -22,8 +23,11 @@ public class Spitter {
 	private String profilePicPath;
 	private Date registrationDate;
 
+	public Spitter() {
+	}
+
 	public Spitter(long id, String firstName, String lastName, String username, String password, String email, Date registrationDate) {
-		this.id=id;
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
@@ -31,10 +35,6 @@ public class Spitter {
 		this.setEmail(email);
 		this.registrationDate = registrationDate;
 
-	}
-
-	public Spitter() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@NotNull
